@@ -30,7 +30,7 @@
           </div>
         </div>
         <div class="gallery">
-          <img src="http://wallpapers.wallhaven.cc/wallpapers/full/wallhaven-341997.jpg">
+          <img class="cover" src="http://wallpapers.wallhaven.cc/wallpapers/full/wallhaven-341997.jpg">
         </div>
       </article>
       <article class="debug-even">
@@ -41,7 +41,7 @@
           </div>
         </div>
         <div class="gallery">
-          <img src="http://wallpapers.wallhaven.cc/wallpapers/full/wallhaven-343611.jpg">
+          <img class="cover" src="http://wallpapers.wallhaven.cc/wallpapers/full/wallhaven-343611.jpg">
         </div>
       </article>
     </main>
@@ -52,25 +52,31 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
 
     <script>
-      $( window ).resize(function() {
-        $(".gallery img").each(function(i, item) {
-          var img_height = $(item).height();
-          var div_height = $(item).parent().height();
-          if(img_height<div_height){
-              //IMAGE IS SHORTER THAN CONTAINER HEIGHT - CENTER IT VERTICALLY
-              var newMargin = (div_height-img_height)/2+'px';
-              $(item).css({'margin-top': newMargin });
-          }else if(img_height>div_height){
-              //IMAGE IS GREATER THAN CONTAINER HEIGHT - REDUCE HEIGHT TO CONTAINER MAX - SET WIDTH TO AUTO
-              $(item).css({'width': 'auto', 'height': '100%'});
-              //CENTER IT HORIZONTALLY
-              var img_width = $(item).width();
-              var div_width = $(item).parent().width();
-              var newMargin = (div_width-img_width)/2+'px';
-              $(item).css({'margin-left': newMargin});
-          }
-        });
-      });
+      /*$(document).ready(function() {
+        $(window).resize(function() {
+          $(".cover").each(function() {
+            var maxW = $(this).parent(".gallery").width();
+            var maxH = $(this).parent(".gallery").height();
+            var w = $(this).width();
+            var h = $(this).height();
+            if (maxW > 718) {
+              $(this).css({
+                left: 0.5*(maxW - w) + "px",
+                top: "0px",
+                maxHeight: "100%",
+                width: "auto"
+              });
+            } else {
+              $(this).css({
+                top: 0.5*(maxH - h) + "px",
+                left: "0px",
+                maxHeight: "100%",
+                width: "100%"
+              });
+            }
+          });
+        }).resize();
+      });*/
     </script>
   </body>
 </html>

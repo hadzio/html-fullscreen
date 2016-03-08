@@ -17,9 +17,9 @@ article {
 }
 
 .gallery {
-  height: 100%;
   position: relative;
   overflow: hidden;
+  height: 100%;
 }
 
 .gallery img {
@@ -33,6 +33,23 @@ article {
   top: 0;
   max-height: 100%;
   max-width: none;
+}
+
+@media (min-width: 720px) {
+  .gallery img {
+    left: 50%;
+    transform: translate(-50%, 0);
+  }
+}
+@media (max-width: 720px) {
+  article {
+    height: 300px;
+    max-height: 300px;
+  }
+  .gallery img {
+    top: 50%;
+    transform: translate(0, -50%);
+  }
 }
 
 .debug-odd {
