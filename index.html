@@ -23,18 +23,23 @@
 
     <main>
       <article class="debug-odd">
-        <div class="grid">
+        <div class="table">
           <div class="v-center">
-            <h2>Der erste Titel</h2>
-            <a href="" class="btn btn-default">View Gallery</a>
+            <div>
+              <h2>Der erste Titel</h2>
+              <a href="" class="btn btn-default">View Gallery</a>
+            </div>
+            <div>
+              <a id="scroller" href="javascript:$('#section-2').goTo();$('#scroller').hide()" class="btn btn-default">Down</a>
+            </div>
           </div>
         </div>
         <div class="gallery">
           <img class="cover" src="http://wallpapers.wallhaven.cc/wallpapers/full/wallhaven-341997.jpg">
         </div>
       </article>
-      <article class="debug-even">
-        <div class="grid">
+      <article id="section-2" class="debug-even">
+        <div class="table">
           <div class="v-center">
             <h2>Anderer Titel</h2>
             <a href="" class="btn btn-default">View Gallery</a>
@@ -52,6 +57,15 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
 
     <script>
+    (function($) {
+      $.fn.goTo = function() {
+          $('html, body').animate({
+              scrollTop: $(this).offset().top + 'px'
+          }, 'fast');
+          return this; // for chaining...
+      }
+    })(jQuery);
+
       /*$(document).ready(function() {
         $(window).resize(function() {
           $(".cover").each(function() {
