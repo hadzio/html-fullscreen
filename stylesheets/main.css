@@ -9,16 +9,17 @@ html, body, main {
 }
 
 article {
-  position: static;
+  position: relative;
   height: 100%;
   max-height: none;
-  min-height: auto;
-  background-size: cover;
-  background-repeat: no-repeat;
+  min-height: 300px;
+  display: block;
 }
 
 .gallery {
   height: 100%;
+  position: relative;
+  overflow: hidden;
 }
 
 .gallery img {
@@ -29,17 +30,9 @@ article {
   width: auto;
   height: auto;
   min-width: 100%;
-  top: 0px;
+  top: 0;
   max-height: 100%;
-  overflow: hidden;
-}
-
-#section-1 {
-  background-image: url(http://wallpapers.wallhaven.cc/wallpapers/full/wallhaven-341997.jpg);
-}
-
-#section-2 {
-  background-image: url(http://wallpapers.wallhaven.cc/wallpapers/full/wallhaven-343611.jpg);
+  max-width: none;
 }
 
 .debug-odd {
@@ -55,6 +48,12 @@ article {
   height: 100%;
   width: 100%;
   text-align: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 5;
 }
 
 .v-center {
